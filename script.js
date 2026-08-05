@@ -4,17 +4,58 @@ const coachMessages = document.getElementById("coach-messages");
 const coachForm = document.getElementById("coach-form");
 const coachQuestion = document.getElementById("coach-question");
 const sportFinderForm = document.getElementById("sport-finder-form");
+let knowledgeBase = [];
+
+function parseKnowledgeBase(text) {
+  return text.trim().split("\n\n").map((entry) => {
+    const [questionLine, ...answerLines] = entry.split("\n");
+    return {
+      question: questionLine.replace("Q: ", ""),
+      answer: answerLines.join(" ").replace("A: ", ""),
+    };
+  });
+}
+
+fetch("sports-knowledge-base.txt")
+  .then((response) => {
+    if (!response.ok) throw new Error("Knowledge base could not be loaded");
+    return response.text();
+  })
+  .then((text) => {
+    knowledgeBase = parseKnowledgeBase(text);
+  })
+  .catch(() => {
+    console.warn("Run the project through a local web server to load the Sports Compass knowledge base.");
+  });
 
 function addCoachMessage(message, sender) {
   const bubble = document.createElement("div");
   bubble.className = `coach-message coach-message--${sender}`;
-  bubble.textContent = message;
+  if (sender === "bot") {
+    const avatar = document.createElement("span");
+    avatar.className = "message-avatar";
+    avatar.setAttribute("aria-hidden", "true");
+    avatar.textContent = "⚽";
+    bubble.appendChild(avatar);
+  }
+  const text = document.createElement("p");
+  text.textContent = message;
+  bubble.appendChild(text);
   coachMessages.appendChild(bubble);
   coachMessages.scrollTop = coachMessages.scrollHeight;
 }
 
 function getCoachReply(question) {
   const text = question.toLowerCase();
+  const queryWords = text.match(/[a-z]{3,}/g) || [];
+  const bestMatch = knowledgeBase
+    .map((entry) => ({
+      ...entry,
+      score: queryWords.filter((word) => entry.question.toLowerCase().includes(word)).length,
+    }))
+    .sort((first, second) => second.score - first.score)[0];
+
+  if (bestMatch?.score >= 2) return bestMatch.answer;
 
   if (text.includes("8") || text.includes("year") || text.includes("age") || text.includes("suit")) {
     return "For an 8-year-old, Foundations is a great place to start. Soccer, basketball, swimming, and martial arts are popular options. The best choice depends on what they enjoy and their comfort level.";
