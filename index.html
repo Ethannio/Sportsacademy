@@ -31,8 +31,15 @@
           <span>Sport fit</span><span>Confidence cues</span><span>Clear next step</span>
         </div>
         <div class="coach-chat" aria-label="AI Coach Assistant">
+          <div class="coach-chat__header">
+            <div class="bot-identity">
+              <div class="bot-avatar" aria-hidden="true">⚽</div>
+              <div><strong>Sports Compass</strong><span><i></i> Online now</span></div>
+            </div>
+            <span class="bot-label">AI COACH</span>
+          </div>
           <div id="coach-messages" class="coach-messages" aria-live="polite">
-            <div class="coach-message coach-message--bot">Hi! I’m Sports Compass. Tell me your child’s age and what they enjoy, or ask a question below.</div>
+            <div class="coach-message coach-message--bot"><span class="message-avatar" aria-hidden="true">⚽</span><p>Hi! I’m Sports Compass. Tell me your child’s age and what they enjoy, or ask a question below.</p></div>
           </div>
           <form id="sport-finder-form" class="sport-finder-form">
             <label>Child’s age<select name="age" required><option value="" selected disabled>Select age</option><option value="5-7">5–7</option><option value="8-10">8–10</option><option value="11-13">11–13</option><option value="14+">14+</option></select></label>
@@ -50,7 +57,7 @@
           <form id="coach-form" class="coach-form">
             <label class="sr-only" for="coach-question">Ask the AI Coach</label>
             <input id="coach-question" name="question" type="text" placeholder="Ask about sports, equipment, fees, or registration…" required />
-            <button type="submit">Ask</button>
+            <button type="submit" aria-label="Send question">➤</button>
           </form>
         </div>
       </section>
