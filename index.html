@@ -10,7 +10,7 @@
     <header class="site-header">
       <a class="brand" href="#home">Sports Academy</a>
       <nav aria-label="Main navigation">
-        <a href="#about">About</a><a href="#programs">Programs</a><a href="#coaches">Coaches</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#programs">Programs</a><a href="#coaches">Coaches</a><a href="#assistant">AI Coach</a><a href="#contact">Contact</a>
       </nav>
     </header>
     <main id="home">
@@ -23,6 +23,37 @@
       <section id="about"><h2>About us</h2><p>We provide supportive coaching, skill development, and a community that helps athletes thrive.</p></section>
       <section id="programs"><h2>Programs</h2><div class="cards"><article><h3>Foundations</h3><p>Fun, confidence-building training for beginners.</p></article><article><h3>Development</h3><p>Focused coaching for improving athletes.</p></article><article><h3>Performance</h3><p>Advanced training for competitive players.</p></article></div></section>
       <section id="coaches"><h2>Our coaches</h2><p>Experienced mentors who put athlete development first.</p></section>
+      <section id="assistant" class="assistant-section">
+        <p class="eyebrow">Sports Compass</p>
+        <h2>Help your child find their next sport.</h2>
+        <p>A parent-friendly guide for sport discovery, practical questions, and a confident first step.</p>
+        <div class="compass-intro">
+          <span>Sport fit</span><span>Confidence cues</span><span>Clear next step</span>
+        </div>
+        <div class="coach-chat" aria-label="AI Coach Assistant">
+          <div id="coach-messages" class="coach-messages" aria-live="polite">
+            <div class="coach-message coach-message--bot">Hi! I’m Sports Compass. Tell me your child’s age and what they enjoy, or ask a question below.</div>
+          </div>
+          <form id="sport-finder-form" class="sport-finder-form">
+            <label>Child’s age<select name="age" required><option value="" selected disabled>Select age</option><option value="5-7">5–7</option><option value="8-10">8–10</option><option value="11-13">11–13</option><option value="14+">14+</option></select></label>
+            <label>They enjoy<select name="interest" required><option value="" selected disabled>Select an interest</option><option value="team play">Team play</option><option value="individual challenges">Individual challenges</option><option value="being active outdoors">Being active outdoors</option><option value="building confidence">Building confidence</option></select></label>
+            <label>They want to build<select name="goal" required><option value="" selected disabled>Select a goal</option><option value="coordination and confidence">Coordination and confidence</option><option value="fitness and stamina">Fitness and stamina</option><option value="teamwork and communication">Teamwork and communication</option><option value="focus and discipline">Focus and discipline</option></select></label>
+            <button type="submit">Find a starting point</button>
+          </form>
+          <div class="suggested-questions" aria-label="Suggested questions">
+            <button type="button" data-question="Which sport suits an 8-year-old?">Sport for an 8-year-old</button>
+            <button type="button" data-question="What equipment is needed?">Equipment needed</button>
+            <button type="button" data-question="What are the academy timings?">Academy timings</button>
+            <button type="button" data-question="What is the fee?">Fees</button>
+            <button type="button" data-question="How can I register?">How to register</button>
+          </div>
+          <form id="coach-form" class="coach-form">
+            <label class="sr-only" for="coach-question">Ask the AI Coach</label>
+            <input id="coach-question" name="question" type="text" placeholder="Ask about sports, equipment, fees, or registration…" required />
+            <button type="submit">Ask</button>
+          </form>
+        </div>
+      </section>
       <section id="contact">
         <h2>Get in touch</h2>
         <p>Tell us a little about the athlete and the sport they are interested in.</p>
