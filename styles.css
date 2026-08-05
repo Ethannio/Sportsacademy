@@ -1,23 +1,43 @@
-:root {
-  --navy: #0d1b2a;
-  --blue: #1677c8;
-  --light: #f4f8fb;
-  --text: #17212b;
-}
-
-* { box-sizing: border-box; }
-body { margin: 0; color: var(--text); font: 16px/1.6 Arial, sans-serif; }
-.site-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 7%; background: var(--navy); }
-.brand, nav a { color: white; text-decoration: none; }
-.brand { font-size: 1.25rem; font-weight: 700; }
-nav { display: flex; gap: 1rem; }
-section { padding: 4rem 7%; }
-.hero { background: linear-gradient(120deg, var(--navy), var(--blue)); color: white; min-height: 55vh; display: grid; align-content: center; }
-.hero h1 { max-width: 700px; margin: 0; font-size: clamp(2.4rem, 6vw, 4.7rem); line-height: 1.1; }
-.eyebrow { color: #a9dafd; font-weight: bold; text-transform: uppercase; letter-spacing: .08em; }
-.button, button { display: inline-block; width: fit-content; padding: .75rem 1.1rem; border: 0; border-radius: .25rem; background: white; color: var(--navy); font: inherit; font-weight: bold; text-decoration: none; cursor: pointer; }
-#programs { background: var(--light); }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-article { padding: 1.5rem; border-radius: .5rem; background: white; box-shadow: 0 2px 12px #0d1b2a14; }
-footer { padding: 1.5rem 7%; background: var(--navy); color: white; }
-@media (max-width: 650px) { .site-header { align-items: flex-start; flex-direction: column; gap: .75rem; } .cards { grid-template-columns: 1fr; } }
+:root { --navy:#0d1b2a; --blue:#1677c8; --light:#f4f8fb; --text:#17212b; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--text); font:16px/1.6 Arial,sans-serif; }
+.site-header { display:flex; justify-content:space-between; align-items:center; padding:1rem 7%; background:var(--navy); }
+.brand, nav a { color:#fff; text-decoration:none; }
+.brand { font-size:1.25rem; font-weight:700; }
+nav { display:flex; gap:1rem; }
+section { padding:4rem 7%; }
+.hero { min-height:55vh; display:grid; align-content:center; background:linear-gradient(120deg,var(--navy),var(--blue)); color:#fff; }
+.hero h1 { max-width:700px; margin:0; font-size:clamp(2.4rem,6vw,4.7rem); line-height:1.1; }
+.eyebrow { color:#a9dafd; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+.button, button { display:inline-block; width:fit-content; padding:.75rem 1.1rem; border:0; border-radius:.25rem; background:#fff; color:var(--navy); font:inherit; font-weight:700; text-decoration:none; cursor:pointer; }
+#programs { background:var(--light); }
+.cards, .form-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+article { padding:1.5rem; border-radius:.5rem; background:#fff; box-shadow:0 2px 12px #0d1b2a14; }
+.assistant-section { background:var(--light); }
+.assistant-section > h2 { max-width:700px; font-size:clamp(2rem,4vw,3.3rem); line-height:1.15; }
+.compass-intro { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.25rem 0; }
+.compass-intro span { padding:.35rem .65rem; border-radius:999px; background:#d9ecfa; color:#075b9e; font-size:.9rem; font-weight:700; }
+.coach-chat { display:grid; max-width:760px; gap:1rem; padding:1rem; border-radius:.75rem; background:#fff; box-shadow:0 2px 12px #0d1b2a14; }
+.coach-messages { display:grid; gap:.75rem; min-height:160px; max-height:360px; overflow-y:auto; padding:.25rem; }
+.coach-message { max-width:85%; padding:.7rem .9rem; border-radius:.75rem; }
+.coach-message--bot { justify-self:start; background:#e3f2fd; }
+.coach-message--user { justify-self:end; background:var(--navy); color:#fff; }
+.sport-finder-form { display:grid; grid-template-columns:repeat(3, 1fr); gap:.75rem; padding:1rem; border-radius:.5rem; background:#f4f8fb; }
+.sport-finder-form label { display:grid; gap:.35rem; font-size:.9rem; font-weight:700; }
+.sport-finder-form select { min-width:0; padding:.65rem; border:1px solid #aeb9c3; border-radius:.25rem; background:#fff; color:var(--text); font:inherit; }
+.sport-finder-form button { grid-column:1 / -1; justify-self:start; background:var(--blue); color:#fff; }
+.suggested-questions { display:flex; flex-wrap:wrap; gap:.5rem; }
+.suggested-questions button { padding:.45rem .7rem; border:1px solid #9ac8ed; background:#fff; color:#075b9e; font-size:.9rem; }
+.coach-form { display:grid; grid-template-columns:1fr auto; gap:.5rem; }
+.coach-form input { min-width:0; padding:.7rem; border:1px solid #aeb9c3; border-radius:.25rem; font:inherit; }
+.coach-form button { background:var(--blue); color:#fff; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0, 0, 0, 0); white-space:nowrap; border:0; }
+.contact-form { display:grid; max-width:760px; gap:1rem; }
+.form-grid { grid-template-columns:repeat(2,1fr); }
+.contact-form label { display:grid; gap:.35rem; font-weight:700; }
+.contact-form input, .contact-form select, .contact-form textarea { width:100%; padding:.7rem; border:1px solid #aeb9c3; border-radius:.25rem; color:var(--text); font:inherit; font-weight:400; }
+.contact-form textarea { resize:vertical; }
+.contact-form button { background:var(--blue); color:#fff; }
+.form-status { min-height:1.6rem; margin:0; color:#176b36; font-weight:700; }
+footer { padding:1.5rem 7%; background:var(--navy); color:#fff; }
+@media (max-width:650px) { .site-header { align-items:flex-start; flex-direction:column; gap:.75rem; } .cards, .form-grid, .sport-finder-form { grid-template-columns:1fr; } .coach-form { grid-template-columns:1fr; } }
