@@ -51,5 +51,12 @@ article { padding:1.5rem; border-radius:.5rem; background:#fff; box-shadow:0 2px
 .contact-form textarea { resize:vertical; }
 .contact-form button { background:var(--blue); color:#fff; }
 .form-status { min-height:1.6rem; margin:0; color:#176b36; font-weight:700; }
+.faq-page { max-width:950px; margin:0 auto; }
+.faq-page h1 { margin:.2rem 0; font-size:clamp(2.4rem,5vw,4.4rem); line-height:1.1; }
+.faq-list { display:grid; gap:.75rem; margin-top:2rem; }
+.faq-list details { border:1px solid #cfdae3; border-radius:.5rem; background:#fff; }
+.faq-list summary { padding:1rem 1.2rem; color:var(--navy); font-weight:700; cursor:pointer; }
+.faq-list p { padding:0 1.2rem 1rem; margin:0; }
+.faq-cta { margin-top:2rem; background:var(--blue); color:#fff; }
 footer { padding:1.5rem 7%; background:var(--navy); color:#fff; }
 @media (max-width:650px) { .site-header { align-items:flex-start; flex-direction:column; gap:.75rem; } .cards, .form-grid, .sport-finder-form { grid-template-columns:1fr; } .coach-form { grid-template-columns:1fr; } }
